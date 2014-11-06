@@ -1,0 +1,12 @@
+<h2> Add Your Recipe! </h2>
+
+<% bootstrap_form_for @recipe %>
+  <%# f.hidden_field :user_id, value: current_user.id %>
+  <%=f.text_field :name %>
+  <%=f.text_area :description %>
+  <ul class="horizontal">
+    <% all_ingredients.each do |ing| %>
+      <li>
+        <%= check_box_tag "ingedient_ids"
+  </ul>
+<% end %>

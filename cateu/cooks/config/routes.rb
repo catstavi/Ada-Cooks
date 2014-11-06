@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   resources :recipes
+
+  post "/ingredients/new",    to: "ingredients#add_new",    as: :new_categories
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

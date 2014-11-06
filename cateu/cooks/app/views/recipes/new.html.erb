@@ -1,12 +1,25 @@
 <h2> Add Your Recipe! </h2>
 
-<% bootstrap_form_for @recipe %>
+<h3> Ingredients </h3>
+To get started list all the ingredients the recipe will need!
+Use commas to seperate each ingredient.
+
+<% bootstrap_form_tag %>
+  <%= label_tag "ingredients", "Ingredients" %>
+  <%= text_area_tag :ingredients %>
+<% end %>
+
+<% bootstrap_form_tag  %>
   <%# f.hidden_field :user_id, value: current_user.id %>
-  <%=f.text_field :name %>
-  <%=f.text_area :description %>
-  <ul class="horizontal">
-    <% all_ingredients.each do |ing| %>
-      <li>
-        <%= check_box_tag "ingedient_ids"
-  </ul>
+  <div>
+  <%= label_tag "recipe_form[:name]", "Name" %>
+  <%=text_field_tag :name %>
+  </div>
+  <div>
+  <%= label_tag "recipe_form[:description]", "Description" %>
+  <%=text_field_tag :description %>
+  </div>
+
+  <%= submit_tag %>
+
 <% end %>

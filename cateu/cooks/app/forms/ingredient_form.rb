@@ -1,5 +1,7 @@
 class IngredientForm
 
+  attr_reader :ingr_objs
+
   def initialize(ingr_list)
     ingredient_names = parse_list(ingr_list)
     @ingr_objs = find_or_create(ingredient_names)
@@ -7,7 +9,7 @@ class IngredientForm
 
   #how to make this thing catch errors in a way that will display on form?
   #need to have each create be an if check in the method that displays it..
-  
+
   private
 
   def parse_list(list)

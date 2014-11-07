@@ -1,25 +1,38 @@
 <h2> Add Your Recipe! </h2>
+<% unless defined? @ingredients %>
+  <h3> Ingredients </h3>
+  To get started list all the ingredients the recipe will need!
+  Use commas to seperate each ingredient.
 
-<h3> Ingredients </h3>
-To get started list all the ingredients the recipe will need!
-Use commas to seperate each ingredient.
+  <%= bootstrap_form_tag url: new_ingredients_path do %>
+    <%= label_tag "ingredients", "Ingredients" %>
+    <%= text_area_tag :ingredients %>
+    <%= submit_tag "Submit Ingredients" %>
+  <% end %>
 
-<% bootstrap_form_tag %>
-  <%= label_tag "ingredients", "Ingredients" %>
-  <%= text_area_tag :ingredients %>
-<% end %>
+<% else %>
 
-<% bootstrap_form_tag  %>
-  <%# f.hidden_field :user_id, value: current_user.id %>
-  <div>
-  <%= label_tag "recipe_form[:name]", "Name" %>
-  <%=text_field_tag :name %>
-  </div>
-  <div>
-  <%= label_tag "recipe_form[:description]", "Description" %>
-  <%=text_field_tag :description %>
-  </div>
+  <%= form_tag @recipe do |f| %>
+    <%# f.hidden_field :user_id, value: current_user.id %>
+    Measurements
+    <% @recipe.measurements.each do |measurement| %>
+      <%= fields_for :measurement, measurement do |measurement_fields| %>
+        <%= measurement_fields.label measurement, measurement.ingredient.name %>
+        <%= measurement_fields.text_field :amount %>
+      <% end %>
+    <% end %>
 
-  <%= submit_tag %>
+    <div>
+    <%= f.label "recipe_form[:name]", "Name" %>
+    <%= f.text_field :name %>
+    </div>
+    <div>
+    <%= f.label "recipe_form[:description]", "Description" %>
+    <%= f.text_field :description %>
+    </div>
+
+    <%= submit_tag %>
+
+  <% end %>
 
 <% end %>

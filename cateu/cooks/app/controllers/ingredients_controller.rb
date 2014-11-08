@@ -2,11 +2,6 @@ class IngredientsController < ApplicationController
 
   def add_new
     @ingredients = IngredientForm.new(params[:ingredients]).ingr_objs
-    @recipe = Recipe.new
-    @ingredients.each do |ing|
-      @recipe.measurements.new(ingredient: ing)
-    end
-
     render 'recipes/new'
   end
 

@@ -12,23 +12,23 @@
 
 <% else %>
 
-  <%= form_tag @recipe do |f| %>
+  <%= bootstrap_form_tag url: :recipes, action: :post do %>
     <%# f.hidden_field :user_id, value: current_user.id %>
     Measurements
-    <% @recipe.measurements.each do |measurement| %>
-      <%= fields_for :measurement, measurement do |measurement_fields| %>
-        <%= measurement_fields.label measurement, measurement.ingredient.name %>
-        <%= measurement_fields.text_field :amount %>
-      <% end %>
+    <% @ingredients.each do |ingredient| %>
+        <%= text_field_tag "measurement[#{ingredient.id}][]" %>
+        <%= text_field_tag "measurement[#{ingredient.id}][]" %>
+        <%= label_tag "measurement[]", ingredient.name %>
     <% end %>
 
+
     <div>
-    <%= f.label "recipe_form[:name]", "Name" %>
-    <%= f.text_field :name %>
+    <%= label_tag "recipe_form[:name]", "Name" %>
+    <%= text_field_tag "recipe_form[:name]" %>
     </div>
     <div>
-    <%= f.label "recipe_form[:description]", "Description" %>
-    <%= f.text_field :description %>
+    <%= label_tag "recipe_form[:description]", "Description" %>
+    <%= text_field_tag "recipe_form[:description]" %>
     </div>
 
     <%= submit_tag %>

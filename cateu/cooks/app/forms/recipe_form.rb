@@ -8,9 +8,9 @@ class RecipeForm
     #create an instance of recipe class
     #and check ingredients, create & add as needed
 
-    recipe = Recipe.new
+    recipe = Recipe.new(@attributes)
 
   end
-  
+
 
 end

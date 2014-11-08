@@ -4,9 +4,12 @@ Rails.application.routes.draw do
 
   resources :recipes
 
-  # get "/ingredient/new",      to: "ingredients#new",        as: :new_ingredient
   post "/ingredients/new",    to: "ingredients#add_new",    as: :new_ingredients
+  get "/users/new",           to: "users#new",              as: :sign_up
+  post "/users/new",       to: "users#create"
 
+  get "/pages/login",       to: "pages#login",            as: :log_in
+  post "/pages/login",      to: "pages#user_session"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

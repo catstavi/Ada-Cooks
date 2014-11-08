@@ -10,7 +10,7 @@ class RecipesController < ApplicationController
       @recipe.measurements << measure
     end
     if @recipe.save
-      redirect_to root_path
+      redirect_to root_path, notice: "Your recipe has been added! Thanks for contributing!"
     else
       render :new
     end

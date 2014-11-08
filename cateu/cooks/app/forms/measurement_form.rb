@@ -14,8 +14,5 @@ class MeasurementForm
 
   private
 
-  # def measurement_params
-  #   params.require(:measurement)
-  # end
 
 end

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   post "/ingredients/new",    to: "ingredients#add_new",    as: :new_ingredients
   get "/users/new",           to: "users#new",              as: :sign_up
-  post "/users/new",       to: "users#create"
+  post "/users",       to: "users#create"
 
   get "/pages/login",       to: "pages#login",            as: :log_in
   post "/pages/login",      to: "pages#user_session"

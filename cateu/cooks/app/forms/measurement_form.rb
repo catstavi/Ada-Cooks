@@ -1,14 +1,14 @@
 class MeasurementForm
+  attr_reader :measurements
 
   def initialize(attributes)
-    @attributes = attributes
-    submit
+    @measurements = submit(attributes)
   end
 
-  def submit
-    @attributes.each do |key, value|
+  def submit(attributes)
+    attributes.collect do |key, value|
       Ingredient.find(key)
-      IngredientMeasurement.create(amount: value[0], unit: value[1], ingredient_id: key)
+      Measurement.create(amount: value[0], unit: value[1], ingredient_id: key)
     end
   end
 

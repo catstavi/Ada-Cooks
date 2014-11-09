@@ -1,0 +1,6 @@
+<h2>Log In </h2>
+<%= form_tag(log_in_path) do %>
+  <%= text_field_tag :username %>
+  <%= password_field_tag :password %>
+  <%= submit_tag "Log In" %>
+<% end %>

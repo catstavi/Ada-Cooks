@@ -13,7 +13,7 @@
 <% else %>
 
   <%= bootstrap_form_tag url: :recipes, action: :post do %>
-    <%# f.hidden_field :user_id, value: current_user.id %>
+    <% f.hidden_field :user_id, value: current_user.id %>
     Measurements
     <% @ingredients.each do |ingredient| %>
         <%= text_field_tag "measurement[#{ingredient.id}][]" %>

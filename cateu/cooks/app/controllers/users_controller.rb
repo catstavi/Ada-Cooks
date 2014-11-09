@@ -13,6 +13,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    user = User.find_by(id: params[:id])
+    unless user == current_user
+      redirect to root_path, notice: "Not authorized"
+    end
+  end
+
   private
 
   def user_params

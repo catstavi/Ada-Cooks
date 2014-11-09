@@ -16,6 +16,23 @@ class RecipesController < ApplicationController
     end
   end
 
+  def show
+    @recipe = Recipe.find_by(id: params[:id])
+    unless @recipe
+      redirect_to root_path, notice: "Recipe not found."
+    end
+  end
+
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    @recipe.measurements.each do |measurement|
+      measurement.destroy
+    end
+    @recipe.destroy
+    redirect_to root_path, notice: "#{@recipe.name} has been deleted."
+  end
+
+
   private
 
   def recipe_params

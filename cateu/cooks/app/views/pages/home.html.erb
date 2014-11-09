@@ -1,12 +1,7 @@
 This is the home page! :D
 
-<% if current_user %>
-  You are currently logged in as <%=current_user.username%>.
-  <%= button_to "Log out", log_out_path, method: :get %>
 
-<% else %>
-  <%= button_to "Sign up", sign_up_path, method: :get %>
-  <%= button_to "Log in", log_in_path, method: :get %>
+<% @all_recipes.each do |recipe| %>
+<br>
+  <%= link_to recipe.name, recipe %>
 <% end %>
-
-<%= link_to "New Recipe", new_recipe_path %>

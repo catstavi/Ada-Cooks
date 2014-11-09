@@ -7,10 +7,13 @@ Rails.application.routes.draw do
   post "/ingredients/new",    to: "ingredients#add_new",    as: :new_ingredients
   get "/users/new",           to: "users#new",              as: :sign_up
   post "/users",              to: "users#create"
+  get "/users/:id",           to: "users#show",             as: :user
 
   get "/login",               to: "sessions#new",            as: :log_in
   post "/login",              to: "sessions#create"
   get "/logout",              to: "sessions#destroy",        as: :log_out
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -13,10 +13,7 @@ class IngredientForm
   private
 
   def parse_list(list)
-    ingr_names = list.split(', ')
-    ingr_names.collect do |name|
-      name.singularize
-    end
+    list.split(', ')
   end
 
   def find_or_create(ingredient_names)

@@ -1,7 +1,9 @@
-This is the home page! :D
+<% if defined? @search %>
+  Results for <%= @search %>.
+<% else %>
+  <h2> Recipes </h2>
+<% end %>
 
-
-<% @all_recipes.each do |recipe| %>
-<br>
-  <%= link_to recipe.name, recipe %>
+<% @recipes.each do |recipe| %>
+  <h5> <%= link_to recipe.name, recipe %> </h5>
 <% end %>

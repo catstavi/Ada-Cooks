@@ -1,7 +1,13 @@
 class PagesController < ApplicationController
 
   def home
-    @all_recipes = Recipe.all.sort
+    @recipes = Recipe.all.sort
+  end
+
+  def search
+    @search = params[:search]
+    @recipes = Recipe.includes(:ingredients).references(:ingredients).where("ingredients.name ILIKE ?", "%#{@search}%")
+    render :home
   end
 
 end

@@ -1,7 +1,58 @@
+body {
+  background-color: #EDFFFF;
+  color: #014034;
+}
+
+a:hover {
+  color: #03A394;
+  text-decoration: none;
+}
+
+a {
+  color: #027368;
+}
+
+header {
+  background-color: #90EBD5;
+}
+
 header div {
   display: inline;
 }
 
+.search {
+  float: right;
+  padding-right: .5em;
+}
+
 .log-options {
   float: right;
+  padding-top: .5em;
+  padding-right: 1em;
+}
+
+.log-options ul {
+
+}
+
+li {
+  list-style: none;
+}
+
+.content {
+  margin-left: 7vw;
+}
+
+.log-options ul li {
+  padding-left: .5em;
+  padding-right: .5em;
+  list-style: none;
+  display: inline;
+}
+
+.header-title {
+  font-weight: 600;
+  font-size: 2.5em;
+  padding-left: .5em;
+
 }

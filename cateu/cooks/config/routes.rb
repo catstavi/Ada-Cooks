@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   post "/users",              to: "users#create"
   get "/users/:id",           to: "users#show",             as: :user
 
+  post "/pages/search",      to: "pages#search",           as: :search
+
   get "/login",               to: "sessions#new",            as: :log_in
   post "/login",              to: "sessions#create"
   get "/logout",              to: "sessions#destroy",        as: :log_out

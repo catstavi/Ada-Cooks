@@ -18,6 +18,7 @@ class UsersController < ApplicationController
     unless user == current_user
       redirect to root_path, notice: "Not authorized"
     end
+    @recipes = current_user.recipes
   end
 
   private

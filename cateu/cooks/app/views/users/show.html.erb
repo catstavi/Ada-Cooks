@@ -1,0 +1,9 @@
+<h2><%= current_user.username %></h2>
+
+<h3>My Recipes</h3>
+
+<ul>
+  <% @recipes.each do |recipe| %>
+    <li> <%= link_to recipe.name, recipe %> </li>
+  <% end %>
+</ul>

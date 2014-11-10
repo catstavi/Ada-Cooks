@@ -2,17 +2,18 @@
 <div class = "owner_options">
   <% if current_user == @recipe.user %>
     <%= link_to "Edit", edit_recipe_path %>
-    <%= link_to "Remove", @recipe, method: :delete %> 
+    <%= link_to "Remove", @recipe, method: :delete %>
   <% end %>
 </div>
 
-You will need:
-<ul> <% @recipe.measurements.each do |measurement| %>
+<h4>You will need:</h4>
+<ul>
+  <% @recipe.measurements.each do |measurement| %>
       <li>
         <%= measurement.amount %> <%= measurement.unit %> <%= measurement.ingredient.name %>
       </li>
-    <% end %>
+  <% end %>
 </ul>
 
-Instructions:
+<h4>Instructions:</h4>
 <%= @recipe.instructions %>

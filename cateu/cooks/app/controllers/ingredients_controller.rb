@@ -5,13 +5,6 @@ class IngredientsController < ApplicationController
     render 'recipes/new'
   end
 
-  def create
-    @recipe_form = RecipeForm.new(params[:recipe_form])
-
-    if @recipe_form.submit
-    end
-  end
-
   private
 
   def ingredient_params

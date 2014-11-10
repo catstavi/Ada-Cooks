@@ -5,7 +5,7 @@
   Use commas to seperate each ingredient.
 
   <%= bootstrap_form_tag url: new_ingredients_path do %>
-    <%= label_tag "ingredients", "Ingredients" %>
+    <%= label_tag "ingredients", "Ingredients" %> <br>
     <%= text_area_tag :ingredients %>
     <%= submit_tag "Submit Ingredients" %>
   <% end %>
@@ -13,11 +13,12 @@
 <% else %>
 
   <%= bootstrap_form_tag url: :recipes, action: :post do %>
-    Measurements
+    <h5>Measurements</h5>
     <% @ingredients.each do |ingredient| %>
         <%= text_field_tag "measurement[#{ingredient.id}][]" %>
         <%= text_field_tag "measurement[#{ingredient.id}][]" %>
         <%= label_tag "measurement[]", ingredient.name %>
+        <br>
     <% end %>
 
     <%= hidden_field_tag "recipe[user_id]", current_user.id %>

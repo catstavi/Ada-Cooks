@@ -12,7 +12,4 @@ class MeasurementForm
     end
   end
 
-  private
-
-
 end
